@@ -1,0 +1,131 @@
+/* ============================================
+   MediKiosk Design System Tokens
+   Zero-blue palette. All sizing in rem for
+   accessibility text-size scaling.
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ── Primary: Deep Emerald / Forest Green ── */
+  --color-primary-900: #0A3D2A;
+  --color-primary-800: #115C3E;
+  --color-primary-700: #176B49;
+  --color-primary-600: #1F6E4C;
+  --color-primary-500: #28875D;
+  --color-primary-400: #3DA872;
+  --color-primary-300: #6DC499;
+  --color-primary-200: #A3DFC0;
+  --color-primary-100: #D4F0E2;
+  --color-primary-50:  #EDF8F2;
+
+  /* ── AYUSH Terracotta Accent ── */
+  --color-ayush-700: #8E4628;
+  --color-ayush-600: #B5623A;
+  --color-ayush-500: #C97A52;
+  --color-ayush-400: #D99A78;
+  --color-ayush-300: #E8BCA3;
+  --color-ayush-200: #F3D9CC;
+  --color-ayush-100: #FBF0EA;
+
+  /* ── Warning: Amber ── */
+  --color-warning-700: #92610A;
+  --color-warning-600: #B8800E;
+  --color-warning-500: #D4981A;
+  --color-warning-400: #E8B84D;
+  --color-warning-300: #F2D68A;
+  --color-warning-200: #FAE8B8;
+  --color-warning-100: #FDF6E3;
+
+  /* ── Critical: Red (ONLY for red-flag states) ── */
+  --color-critical-700: #8B1A1A;
+  --color-critical-600: #B52525;
+  --color-critical-500: #D43030;
+  --color-critical-400: #E35858;
+  --color-critical-300: #F09090;
+  --color-critical-200: #F8C0C0;
+  --color-critical-100: #FDE8E8;
+
+  /* ── Neutrals: Warm off-white to dark charcoal ── */
+  --color-bg-base:    #FAF8F5;
+  --color-bg-surface: #FFFFFF;
+  --color-bg-subtle:  #F3F1EC;
+  --color-bg-muted:   #E8E5DF;
+  --color-border:     #D4D0C8;
+  --color-border-strong: #A8A49C;
+  --color-text-primary:   #2D2A26;
+  --color-text-secondary: #5C5852;
+  --color-text-muted:     #8A857D;
+  --color-text-inverse:   #FAF8F5;
+
+  /* ── Success (distinct from primary to avoid confusion) ── */
+  --color-success-600: #2E7D4F;
+  --color-success-100: #E6F5EC;
+
+  /* ── Typography ── */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-base: 1rem;        /* 16px */
+  --font-size-sm:   0.875rem;    /* 14px */
+  --font-size-lg:   1.125rem;    /* 18px */
+  --font-size-xl:   1.25rem;     /* 20px */
+  --font-size-2xl:  1.5rem;      /* 24px */
+  --font-size-3xl:  1.875rem;    /* 30px */
+  --font-size-4xl:  2.25rem;     /* 36px */
+  --font-size-kiosk: 1.5rem;     /* 24px — kiosk-oriented screens */
+  --font-size-kiosk-lg: 2rem;    /* 32px */
+  --font-size-kiosk-xl: 2.5rem;  /* 40px */
+  --line-height-normal: 1.5;
+  --line-height-tight:  1.25;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ── Text size multiplier (changed by accessibility control) ── */
+  --text-scale: 1;
+
+  /* ── Spacing (4px base) ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(45, 42, 38, 0.06);
+  --shadow-md: 0 4px 6px rgba(45, 42, 38, 0.08);
+  --shadow-lg: 0 10px 20px rgba(45, 42, 38, 0.1);
+
+  /* ── Focus ── */
+  --focus-outline: 3px solid var(--color-primary-500);
+  --focus-offset: 2px;
+
+  /* ── Transitions ── */
+  --transition-speed: 0.2s;
+  --transition-fn: ease-in-out;
+}
+
+/* ── Scalable font sizes via multiplier ── */
+html {
+  font-size: calc(16px * var(--text-scale));
+}
+
+/* ── Reduce motion ── */
+[data-reduce-motion="true"],
+[data-reduce-motion="true"] * {
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}

@@ -1,0 +1,46 @@
+{
+  "hi": {
+    "audio_path": "reference_clips/hi_ref.wav",
+    "ref_text": "नमस्ते, मैं आपकी स्वास्थ्य जांच में सहायता करने के लिए यहाँ हूँ।"
+  },
+  "mr": {
+    "audio_path": "reference_clips/mr_ref.wav",
+    "ref_text": "नमस्कार, मी आपल्या आरोग्य तपासणीत मदत करण्यासाठी येथे आहे."
+  },
+  "bn": {
+    "audio_path": "reference_clips/bn_ref.wav",
+    "ref_text": "নমস্কার, আমি আপনার স্বাস্থ্য পরীক্ষার জন্য আপনাকে সাহায্য করতে এখানে আছি।"
+  },
+  "ta": {
+    "audio_path": "reference_clips/ta_ref.wav",
+    "ref_text": "வணக்கம், உங்கள் சுகாதார பரிசோதனைக்கு உதவ நான் இங்கு இருக்கிறேன்."
+  },
+  "te": {
+    "audio_path": "reference_clips/te_ref.wav",
+    "ref_text": "నమస్కారం, మీ ఆరోగ్య పరీక్షలో సహాయం చేయడానికి నేను ఇక్కడ ఉన్నాను."
+  },
+  "gu": {
+    "audio_path": "reference_clips/gu_ref.wav",
+    "ref_text": "નમસ્તે, હું તમારી સ્વાસ્થ્ય તપાસમાં મદદ કરવા માટે અહીં છું."
+  },
+  "kn": {
+    "audio_path": "reference_clips/kn_ref.wav",
+    "ref_text": "ನಮಸ್ಕಾರ, ನಿಮ್ಮ ಆರೋಗ್ಯ ತಪಾಸಣೆಯಲ್ಲಿ ಸಹಾಯ ಮಾಡಲು ನಾನು ಇಲ್ಲಿದ್ದೇನೆ."
+  },
+  "ml": {
+    "audio_path": "reference_clips/ml_ref.wav",
+    "ref_text": "നമസ്കാരം, നിങ്ങളുടെ ആരോഗ്യ പരിശോധനയിൽ സഹായിക്കാൻ ഞാൻ ഇവിടെയുണ്ട്."
+  },
+  "pa": {
+    "audio_path": "reference_clips/pa_ref.wav",
+    "ref_text": "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਤੁਹਾਡੀ ਸਿਹਤ ਜਾਂਚ ਵਿੱਚ ਮਦਦ ਕਰਨ ਲਈ ਇੱਥੇ ਹਾਂ।"
+  },
+  "or": {
+    "audio_path": "reference_clips/or_ref.wav",
+    "ref_text": "ନମସ୍କାର, ମୁଁ ଆପଣଙ୍କ ସ୍ୱାସ୍ଥ୍ୟ ପରୀକ୍ଷାରେ ସାହାଯ୍ୟ କରିବା ପାଇଁ ଏଠାରେ ଅଛି।"
+  },
+  "as": {
+    "audio_path": "reference_clips/as_ref.wav",
+    "ref_text": "নমস্কাৰ, মই আপোনাৰ স্বাস্থ্য পৰীক্ষাত সহায় কৰিবলৈ ইয়াত আছো।"
+  }
+}

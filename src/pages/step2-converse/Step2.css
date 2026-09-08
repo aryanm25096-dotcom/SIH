@@ -1,0 +1,150 @@
+/* Step 2 Styles (Converse) */
+.step2-page {
+  max-width: 840px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.stream-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: var(--space-6);
+}
+
+.stream-card {
+  background: var(--color-bg-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-speed) var(--transition-fn);
+  min-height: 280px;
+}
+
+.stream-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.stream-card--modern:hover {
+  border-color: var(--color-primary-600);
+  background: var(--color-primary-50);
+}
+
+.stream-card--ayush:hover {
+  border-color: var(--color-ayush-600);
+  background: var(--color-ayush-100);
+}
+
+.stream-card:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+}
+
+.stream-card--modern .stream-icon-badge {
+  background: var(--color-primary-100);
+  color: var(--color-primary-700);
+}
+
+.stream-card--ayush .stream-icon-badge {
+  background: var(--color-ayush-200);
+  color: var(--color-ayush-700);
+}
+
+.stream-icon-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stream-tag {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-700);
+  margin-bottom: var(--space-1);
+}
+
+.stream-tag--ayush {
+  color: var(--color-ayush-700);
+}
+
+.stream-heading {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-2);
+}
+
+.stream-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+/* Interview page */
+.interview-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 80vh;
+}
+
+.interview-top-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.interview-card-container {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.processing-summary-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-8);
+  text-align: center;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  gap: var(--space-4);
+}
+
+.processing-summary-view .spin-icon {
+  color: var(--color-primary-600);
+}
+
+.processing-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.processing-desc {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 500px;
+}

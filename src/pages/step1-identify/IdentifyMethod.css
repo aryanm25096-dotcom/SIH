@@ -1,0 +1,358 @@
+/* =========================================================
+   IdentifyMethod.css — Screen 2: Patient Identification
+   Two-column layout: poster left, option cards right
+   Matches the Tailwind reference design exactly
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* ── Page shell ── */
+.im-page {
+  min-height: calc(100vh - 112px); /* subtract header + narration bar */
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* ── Two-column grid ── */
+.im-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  align-items: stretch;
+}
+
+/* ── LEFT: Hero poster column ── */
+.im-poster-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.im-poster-card {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 24px 0 rgba(15, 81, 50, 0.10);
+  border: 1px solid #d1fae5;
+  background: #eefbf4;
+}
+
+.im-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* ── RIGHT: Options column ── */
+.im-options-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ── Back button ── */
+.im-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 0.75rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #14532d;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.im-back-btn:hover { color: #052e16; }
+
+.im-back-arrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ── Step / heading / subheading ── */
+.im-step-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #15803d;
+  margin: 0 0 0.25rem 0;
+}
+
+.im-heading {
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.375rem 0;
+}
+
+.im-subheading {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #475569;
+  margin: 0 0 1.5rem 0;
+}
+
+/* ── Method cards stack ── */
+.im-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  flex: 1;
+}
+
+/* ── Individual method card ── */
+.im-method-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.125rem;
+  border-radius: 1rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease,
+    transform 0.1s ease;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.05);
+}
+
+.im-method-card:hover {
+  border-color: #86efac;
+  background: rgba(248, 250, 252, 0.7);
+  box-shadow: 0 2px 8px 0 rgba(15, 81, 50, 0.08);
+}
+
+.im-method-card:active {
+  transform: scale(0.99);
+}
+
+.im-method-card:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 2px;
+}
+
+/* Primary card (first option — highlighted) */
+.im-method-card--primary {
+  background: #effbf5;
+  border: 2px solid #4ade80;
+}
+
+.im-method-card--primary:hover {
+  border-color: #16a34a;
+  background: #effbf5;
+}
+
+/* ── Left: icon + text ── */
+.im-method-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Icon box ── */
+.im-icon-box {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 0.75rem;
+  background: #f0fdf4;
+  color: #166534;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.im-method-card:hover .im-icon-box {
+  background: #dcfce7;
+}
+
+.im-icon-box--primary {
+  background: rgba(209, 250, 229, 0.9);
+}
+
+.im-method-card--primary:hover .im-icon-box--primary {
+  background: #bbf7d0;
+}
+
+.im-icon-svg {
+  width: 1.625rem;
+  height: 1.625rem;
+}
+
+/* ── Text block ── */
+.im-method-text {
+  min-width: 0;
+}
+
+.im-method-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.125rem 0;
+  line-height: 1.3;
+  transition: color 0.15s;
+}
+
+.im-method-card:hover .im-method-title {
+  color: #14532d;
+}
+
+.im-method-desc {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ── Arrow circle ── */
+.im-arrow-circle {
+  width: 2.375rem;
+  height: 2.375rem;
+  border-radius: 9999px;
+  background: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.im-method-card:hover .im-arrow-circle {
+  background: #dcfce7;
+  color: #14532d;
+}
+
+.im-arrow-circle--primary {
+  background: #bbf7d0;
+  color: #14532d;
+}
+
+.im-method-card--primary:hover .im-arrow-circle--primary {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.im-arrow-svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ── Security footer ── */
+.im-security-footer {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+.im-security-inner {
+  background: #f0fbf5;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #d1fae5;
+  font-size: 0.75rem;
+  color: #14532d;
+}
+
+.im-security-left {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 500;
+}
+
+.im-security-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #15803d;
+  flex-shrink: 0;
+}
+
+.im-lock-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #15803d;
+  margin-left: 0.125rem;
+}
+
+.im-security-right {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.im-abdm-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #15803d;
+}
+
+/* ── Responsive: tablet / small screens ── */
+@media (max-width: 900px) {
+  .im-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem 1.25rem;
+    gap: 1.5rem;
+  }
+
+  .im-poster-card {
+    height: 260px;
+  }
+
+  .im-poster-img {
+    object-position: center 20%;
+  }
+
+  .im-heading {
+    font-size: 1.625rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .im-method-card {
+    padding: 0.875rem 0.875rem;
+  }
+
+  .im-icon-box {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .im-method-title {
+    font-size: 0.9375rem;
+  }
+}
