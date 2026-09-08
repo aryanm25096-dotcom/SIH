@@ -72,6 +72,33 @@ export function startListening({ lang = 'en-IN', onResult, onStart, onEnd, onErr
   };
 }
 
+let activeUtterance = null;
+
+/**
+ * Finds the most suitable voice available in the browser for a given BCP-47 language tag.
+ */
+function findBestVoice(bcp47Tag) {
+  if (typeof window === 'undefined' || !window.speechSynthesis) return null;
+  const voices = window.speechSynthesis.getVoices();
+  if (!voices || voices.length === 0) return null;
+
+  // 1. Exact match (e.g. 'hi-IN')
+  const exact = voices.find((v) => v.lang.replace('_', '-').toLowerCase() === bcp47Tag.toLowerCase());
+  if (exact) return exact;
+
+  // 2. Language prefix match (e.g. 'hi')
+  const prefix = bcp47Tag.split('-')[0].toLowerCase();
+  const prefixMatch = voices.find((v) => v.lang.toLowerCase().startsWith(prefix));
+  if (prefixMatch) return prefixMatch;
+
+  // 3. Indian English / local dialect match
+  const indianEnglish = voices.find((v) => v.lang.toLowerCase().includes('in'));
+  if (indianEnglish) return indianEnglish;
+
+  // 4. Default voice
+  return voices.find((v) => v.default) || voices[0] || null;
+}
+
 /**
  * Text-to-speech using the browser's native speechSynthesis API.
  * Used for English ('en') and as the primary offline/error fallback.
@@ -83,21 +110,51 @@ export function speakText(text, lang = 'en-IN', onStart, onEnd) {
     return { cancel: () => {} };
   }
 
-  // Cancel any ongoing speech synthesis
-  window.speechSynthesis.cancel();
+  // Cancel any ongoing speech synthesis and wake up audio queue
+  try {
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.resume();
+  } catch (e) {
+    // ignore
+  }
 
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   utterance.rate = 0.92;
-  utterance.onstart = () => onStart?.();
-  utterance.onend = () => onEnd?.();
-  utterance.onerror = () => onEnd?.();
+
+  // Select optimal voice if available
+  const voice = findBestVoice(lang);
+  if (voice) {
+    utterance.voice = voice;
+  }
+
+  // Retain utterance reference to avoid Chrome GC bug
+  activeUtterance = utterance;
+
+  utterance.onstart = () => {
+    onStart?.();
+  };
+
+  utterance.onend = () => {
+    activeUtterance = null;
+    onEnd?.();
+  };
+
+  utterance.onerror = (e) => {
+    activeUtterance = null;
+    onEnd?.();
+  };
 
   window.speechSynthesis.speak(utterance);
 
   return {
     cancel: () => {
-      window.speechSynthesis.cancel();
+      try {
+        window.speechSynthesis.cancel();
+      } catch (e) {
+        // ignore
+      }
+      activeUtterance = null;
       onEnd?.();
     },
   };
@@ -120,6 +177,7 @@ export function getBCP47Tag(lang) {
     pa: 'pa-IN',
     or: 'or-IN',
     as: 'as-IN',
+    ur: 'ur-IN',
   };
   return map[lang] || 'en-IN';
 }
@@ -179,7 +237,7 @@ export function speakWithIndicF5({ text, language = 'en', onStart, onEnd, onErro
         currentAudio.onerror = (e) => {
           console.warn('[IndicF5 Audio] Playback error, using browser TTS fallback:', e);
           if (!isCancelled) {
-            fallbackController = speakText(text, bcp47, undefined, onEnd);
+            fallbackController = speakText(text, bcp47, onStart, onEnd);
           }
         };
 
@@ -188,21 +246,21 @@ export function speakWithIndicF5({ text, language = 'en', onStart, onEnd, onErro
           playPromise.catch((err) => {
             console.warn('[IndicF5 Audio] Autoplay blocked or gesture required, falling back to speech synthesis:', err);
             if (!isCancelled) {
-              fallbackController = speakText(text, bcp47, undefined, onEnd);
+              fallbackController = speakText(text, bcp47, onStart, onEnd);
             }
           });
         }
       } else {
         // useFallback or missing audio -> fallback to browser SpeechSynthesis
         if (!isCancelled) {
-          fallbackController = speakText(text, bcp47, undefined, onEnd);
+          fallbackController = speakText(text, bcp47, onStart, onEnd);
         }
       }
     })
     .catch((err) => {
       console.warn('[IndicF5 TTS] Backend request failed, falling back to browser SpeechSynthesis:', err.message);
       if (!isCancelled) {
-        fallbackController = speakText(text, bcp47, undefined, onEnd);
+        fallbackController = speakText(text, bcp47, onStart, onEnd);
       }
     });
 

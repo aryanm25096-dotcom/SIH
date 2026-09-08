@@ -6,7 +6,19 @@ import './LandingPage.css';
 export default function LandingPage() {
   const navigate = useNavigate();
 
-  const handleGetStarted = () => navigate('/identify');
+  const handleGetStarted = () => {
+    // Prime browser SpeechSynthesis on first user interaction to bypass autoplay restrictions
+    try {
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.resume();
+        const silent = new SpeechSynthesisUtterance('');
+        window.speechSynthesis.speak(silent);
+      }
+    } catch (e) {
+      // ignore
+    }
+    navigate('/identify');
+  };
 
   return (
     <div className="lp-shell">
