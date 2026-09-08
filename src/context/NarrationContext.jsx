@@ -7,9 +7,7 @@ const NarrationContext = createContext(null);
 export function NarrationProvider({ children }) {
   const { state: patientState } = usePatientSession();
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const [isMuted, setIsMuted] = useState(() => {
-    return localStorage.getItem('medikiosk_narration_muted') === 'true';
-  });
+  const [isMuted, setIsMuted] = useState(false);
   const [lastSpokenText, setLastSpokenText] = useState('');
   const [lastLanguage, setLastLanguage] = useState(patientState?.language || 'en');
 
@@ -70,9 +68,12 @@ export function NarrationProvider({ children }) {
 
   const repeat = useCallback(() => {
     if (lastSpokenText) {
+      if (isMuted) {
+        setIsMuted(false);
+      }
       narrate(lastSpokenText, lastLanguage);
     }
-  }, [lastSpokenText, lastLanguage, narrate]);
+  }, [lastSpokenText, lastLanguage, isMuted, narrate]);
 
   const toggleMute = useCallback(() => {
     setIsMuted((prev) => !prev);
