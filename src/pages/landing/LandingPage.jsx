@@ -35,7 +35,7 @@ export default function LandingPage() {
               </svg>
             </div>
             <div className="lp-brand-text">
-              <span className="lp-brand-name">MediKiosk</span>
+              <span className="lp-brand-name">Niramay</span>
               <span className="lp-brand-tagline">AI Clinical Intake &amp; OPD Digitization</span>
             </div>
           </a>
@@ -101,7 +101,7 @@ export default function LandingPage() {
             </h1>
             <h2 className="lp-subheadline">Smart. Simple. Inclusive.</h2>
             <p className="lp-desc">
-              MediKiosk helps you share your health information in your own language,
+              Niramay helps you share your health information in your own language,
               making your hospital visit faster, easier, and more personalised.
             </p>
 
@@ -179,7 +179,7 @@ export default function LandingPage() {
             <div className="lp-visual-card">
               <img
                 src={kioskHero}
-                alt="Woman using MediKiosk smart healthcare terminal in hospital OPD"
+                alt="Woman using Niramay smart healthcare terminal in hospital OPD"
                 className="lp-visual-img"
               />
             </div>

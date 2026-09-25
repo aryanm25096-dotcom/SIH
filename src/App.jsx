@@ -29,12 +29,12 @@ export default function App() {
         <>
           <header className="global-header">
             <div className="header-inner">
-              <Link to="/identify" className="brand-logo" aria-label="MediKiosk Home">
+              <Link to="/identify" className="brand-logo" aria-label="Niramay Home">
                 <div className="brand-icon">
                   <Activity size={24} aria-hidden="true" />
                 </div>
                 <div className="brand-text-block">
-                  <span className="brand-name">MediKiosk</span>
+                  <span className="brand-name">Niramay</span>
                   <span className="brand-tagline">AI Clinical Intake &amp; OPD Digitization</span>
                 </div>
               </Link>

@@ -165,7 +165,7 @@ export default function PhysicianConsult() {
                 onClick={handleStartNewSession}
               >
                 <RotateCcw size={18} aria-hidden="true" />
-                <span>Start New MediKiosk Intake Demo</span>
+                <span>Start New Niramay Intake Demo</span>
               </button>
             </div>
           ) : (

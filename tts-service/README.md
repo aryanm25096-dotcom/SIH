@@ -1,6 +1,6 @@
-# IndicF5 TTS Service for MediKiosk
+# IndicF5 TTS Service for Niramay
 
-This service provides Indian-language text-to-speech synthesis using **AI4Bharat's IndicF5** model for MediKiosk's accessibility narration.
+This service provides Indian-language text-to-speech synthesis using **AI4Bharat's IndicF5** model for Niramay's accessibility narration.
 
 ---
 

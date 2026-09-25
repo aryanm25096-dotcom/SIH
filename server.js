@@ -1,4 +1,4 @@
-// Standalone Node/Express server for MediKiosk production deployment
+// Standalone Node/Express server for Niramay production deployment
 // Handles /api/tts proxying to IndicF5 Python service
 
 import express from 'express';
@@ -53,5 +53,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`MediKiosk server running on http://localhost:${PORT}`);
+  console.log(`Niramay server running on http://localhost:${PORT}`);
 });

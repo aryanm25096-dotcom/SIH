@@ -1,4 +1,4 @@
-# MediKiosk — AI Clinical History-Taking & Medical Document Digitization
+# Niramay — AI Clinical History-Taking & Medical Document Digitization
 
 A functional front-end prototype engineered for high-volume Indian hospital outpatient departments (OPDs) and AYUSH institutions, developed for the **Smart India Hackathon (SIH)**.
 
@@ -98,7 +98,7 @@ All mock functions are isolated in [`src/mocks/mockServices.js`](src/mocks/mockS
 
 ## 🗣️ IndicF5 Indian-Language Text-to-Speech (TTS)
 
-MediKiosk integrates **AI4Bharat IndicF5** as the primary screen-reading narration engine for accessibility across 11 scheduled Indian languages:
+Niramay integrates **AI4Bharat IndicF5** as the primary screen-reading narration engine for accessibility across 11 scheduled Indian languages:
 
 - **11 Supported Languages**: Hindi (`hi`), Marathi (`mr`), Bengali (`bn`), Tamil (`ta`), Telugu (`te`), Gujarati (`gu`), Kannada (`kn`), Malayalam (`ml`), Punjabi (`pa`), Odia (`or`), Assamese (`as`).
 - **English (`en`) Fallback**: Explicitly falls back to browser `window.speechSynthesis` (or mocked audio) since IndicF5 is specialized for Indian languages.

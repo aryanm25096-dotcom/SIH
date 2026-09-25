@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
 
-const STORAGE_KEY = 'medikiosk_session';
+const STORAGE_KEY = 'niramay_session';
 
 // ── Initial State ──
 const initialState = {

@@ -21,7 +21,7 @@ async function saveScreenshot(page, filename, description) {
 }
 
 async function run() {
-  console.log('Launching browser to capture MediKiosk screens...');
+  console.log('Launching browser to capture Niramay screens...');
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=1440,920'],
@@ -89,7 +89,7 @@ async function run() {
     // Click through SOCRATES to associated symptoms or trigger red flag
     await page.evaluate(() => {
       // Simulate red flag trigger in state for screenshot
-      const stored = localStorage.getItem('medikiosk_session');
+      const stored = localStorage.getItem('niramay_session');
       if (stored) {
         const parsed = JSON.parse(stored);
         parsed.redFlag = {
@@ -98,7 +98,7 @@ async function run() {
           message: 'Your combination of symptoms needs immediate medical attention. A healthcare provider has been alerted and will see you as a priority.',
           acknowledgedByDoctor: false,
         };
-        localStorage.setItem('medikiosk_session', JSON.stringify(parsed));
+        localStorage.setItem('niramay_session', JSON.stringify(parsed));
       }
     });
     await page.reload({ waitUntil: 'networkidle0' });

@@ -41,7 +41,7 @@ export default function Consent() {
       return;
     }
 
-    const text = `Patient Privacy and Informed Consent. MediKiosk records your health symptoms, medical documents, and personal history exclusively to prepare an accurate clinical brief for your attending doctor. Your information is encrypted and protected under national digital health standards.`;
+    const text = `Patient Privacy and Informed Consent. Niramay records your health symptoms, medical documents, and personal history exclusively to prepare an accurate clinical brief for your attending doctor. Your information is encrypted and protected under national digital health standards.`;
 
     speakText(
       text,

@@ -15,7 +15,7 @@ export function NarrationProvider({ children }) {
 
   // Sync mute state to localStorage
   useEffect(() => {
-    localStorage.setItem('medikiosk_narration_muted', isMuted ? 'true' : 'false');
+    localStorage.setItem('niramay_narration_muted', isMuted ? 'true' : 'false');
     if (isMuted && activeControllerRef.current) {
       activeControllerRef.current.cancel();
       setIsSpeaking(false);

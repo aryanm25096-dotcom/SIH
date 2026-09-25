@@ -13,7 +13,7 @@ import soundfile as sf
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("indicf5-tts-service")
 
-app = FastAPI(title="IndicF5 TTS Service", description="AI4Bharat IndicF5 TTS Service for MediKiosk")
+app = FastAPI(title="IndicF5 TTS Service", description="AI4Bharat IndicF5 TTS Service for Niramay")
 
 app.add_middleware(
     CORSMiddleware,
